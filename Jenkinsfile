@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Instalar dependencias') {
             steps {
-                sh '''
+                bat '''
                     python3 -m venv venv
                     . venv/bin/activate
                     pip install -r requirements.txt || echo "No hay archivo requirements.txt"
@@ -14,7 +14,7 @@ pipeline {
 
         stage('Ejecutar pruebas') {
             steps {
-                sh '''
+                bat '''
                     . venv/bin/activate
                     python3 test_main.py
                 '''
