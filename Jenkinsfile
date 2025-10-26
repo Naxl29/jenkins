@@ -6,14 +6,14 @@ pipeline {
             steps {
                 bat '''
                     REM Crear entorno virtual
-                    python -m venv venv
+                    py -m venv venv
 
                     REM Activar entorno virtual
                     call venv\\Scripts\\activate
 
                     REM Instalar dependencias (si existe el archivo)
                     if exist requirements.txt (
-                        pip install -r requirements.txt
+                        py -m pip install -r requirements.txt
                     ) else (
                         echo "No hay archivo requirements.txt"
                     )
