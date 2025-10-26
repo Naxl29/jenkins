@@ -6,14 +6,14 @@ pipeline {
             steps {
                 bat '''
                     REM Crear entorno virtual
-                    "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe" -m venv venv
+                    "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m venv venv
 
                     REM Activar entorno virtual
                     call venv\\Scripts\\activate
 
-                    REM Instalar dependencias (si existe el archivo)
+                    REM Instalar dependencias
                     if exist requirements.txt (
-                        py -m pip install -r requirements.txt
+                        "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pip install -r requirements.txt
                     ) else (
                         echo "No hay archivo requirements.txt"
                     )
@@ -24,10 +24,7 @@ pipeline {
         stage('Ejecutar pruebas') {
             steps {
                 bat '''
-                    REM Activar entorno virtual
                     call venv\\Scripts\\activate
-
-                    REM Ejecutar pruebas
                     python test_main.py
                 '''
             }
