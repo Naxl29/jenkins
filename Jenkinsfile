@@ -6,7 +6,7 @@ pipeline {
             steps {
                 bat '''
                     REM Crear entorno virtual
-                    py -m venv venv
+                    "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Launcher\\py.exe" -m venv venv
 
                     REM Activar entorno virtual
                     call venv\\Scripts\\activate
